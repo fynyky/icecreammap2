@@ -1,0 +1,27 @@
+{
+  "name": "static-site-template",
+  "version": "1.0.0",
+  "description": "Template for building static sites using parcel",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "dev": "bash scripts/dev.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fynyky/static-site-template.git"
+  },
+  "author": "Li Hongyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fynyky/static-site-template/issues"
+  },
+  "homepage": "https://github.com/fynyky/static-site-template#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "parcel": "^2.0.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.0.1",
+    "@parcel/transformer-sass": "^2.0.1"
+  }
+}

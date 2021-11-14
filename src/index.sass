@@ -1,0 +1,40 @@
+@import url(../node_modules/normalize.css/normalize.css)
+
+////////////////////////////////////////////////////////////////////////////////
+// Variables
+////////////////////////////////////////////////////////////////////////////////
+// Colors
+$site-color: #4a54e2
+$secondary-color: #78b5ff
+$text-color: #222
+// Styles
+$body-font-family: Arial, sans-serif
+$header-font-family: 'Arial', sans-serif
+// Breakpoints
+$xs-max: 400px
+$small-max: 650px
+$medium-max: 1000px
+
+////////////////////////////////////////////////////////////////////////////////
+// General Styles
+////////////////////////////////////////////////////////////////////////////////
+html
+    font-size: 18px
+    @media (max-width: $medium-max)
+        font-size: 16px
+    @media (max-width: $small-max)
+        font-size: 14px
+
+body
+    color: $text-color
+    font-family: $body-font-family
+
+h1, h2, h3, h4, h5, h6
+    color: $site-color
+    background-color: $secondary-color
+    font-family: $header-font-family
+
+////////////////////////////////////////////////////////////////////////////////
+// Sub-Sections
+////////////////////////////////////////////////////////////////////////////////
+// @import path_of_section.sass
