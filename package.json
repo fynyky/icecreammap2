@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fynyky/static-site-template#readme",
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.9",
     "normalize.css": "^8.0.1",
     "parcel": "^2.0.1"
   },

@@ -7,9 +7,13 @@
 $site-color: #4a54e2
 $secondary-color: #78b5ff
 $text-color: #222
+$hint-color: #AAA
+$content-background-color: #FFFFFF
 // Styles
 $body-font-family: Arial, sans-serif
 $header-font-family: 'Arial', sans-serif
+$card-border-radius: 0.5rem
+$float-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.7)
 // Breakpoints
 $xs-max: 400px
 $small-max: 650px
@@ -19,22 +23,100 @@ $medium-max: 1000px
 // General Styles
 ////////////////////////////////////////////////////////////////////////////////
 html
-    font-size: 18px
-    @media (max-width: $medium-max)
-        font-size: 16px
-    @media (max-width: $small-max)
-        font-size: 14px
+  font-size: 18px
+  @media (max-width: $medium-max)
+    font-size: 16px
+  @media (max-width: $small-max)
+    font-size: 14px
 
 body
-    color: $text-color
-    font-family: $body-font-family
+  color: $text-color
+  font-family: $body-font-family
 
 h1, h2, h3, h4, h5, h6
-    color: $site-color
-    background-color: $secondary-color
-    font-family: $header-font-family
+  font-family: $header-font-family
+
+=card
+  background-color: $content-background-color
+  border-radius: $card-border-radius
+  box-shadow: $float-shadow
 
 ////////////////////////////////////////////////////////////////////////////////
 // Sub-Sections
 ////////////////////////////////////////////////////////////////////////////////
-// @import path_of_section.sass
+body
+  display: grid
+  position: relative
+  width: 100%
+  height: 100%
+  box-sizing: border-box
+  grid-template-columns: 20rem auto
+  grid-template-rows: 2rem auto
+  grid-template-areas: "searchBox tagList" "placeList ."
+  gap: 1rem
+  padding: 1rem
+  overflow: hidden
+
+#map
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+
+.searchBox
+  @include card
+  position: relative
+  grid-area: searchBox
+
+.results
+  @include card
+  position: relative
+  grid-area: placeList
+  padding: 1rem 1.5rem
+
+  .group
+    & + .group
+      margin-top: 1.5rem
+    .groupTitle
+      margin: 0
+    .groupDescription
+      margin-top: 0.2rem
+      margin-bottom: 0
+    .resultList
+      position: relative
+      margin-top: 0.7rem
+      padding: 0
+      &::before
+        content:""
+        position: absolute
+        height: calc(100% - 1rem)
+        border-left: 1px solid $hint-color
+      .result
+        position: relative
+        line-height: 1rem
+        padding: 0.5rem 0.5rem 0.5rem 0
+        list-style-type: none
+        // Horizontal line pointer
+        &::before  
+          content:""
+          display: inline-block
+          margin-right: 0.5rem
+          border-top: 1px solid $hint-color
+          height: 0.25rem
+          width: 1rem
+
+
+.tagList
+  display: flex
+  position: relative
+  gap: 1rem
+
+  .tag
+    @include card
+    display: flex
+    width: max-content
+    height: 100%
+    padding: 0 1rem
+    align-items: center
+    justify-content: center
